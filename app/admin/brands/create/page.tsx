@@ -34,7 +34,7 @@ export default function CreateBrand() {
       });
 
       // Redirect on successful creation
-      window.location.href = "/admin/brands";
+      window.location.href = "/";
     } catch (err) {
       console.error("Error:", err);
     }
@@ -46,7 +46,7 @@ export default function CreateBrand() {
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div>
           <label>Name:</label>
-          <input type="text" name="name" onChange={handleChange} required />
+          <input className="text-black" type="text" name="name" onChange={handleChange} required />
         </div>
         <div>
           <label>Logo:</label>

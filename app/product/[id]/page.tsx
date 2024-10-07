@@ -17,7 +17,7 @@ const ProductSpecs = (params) => {
       const fetchProduct = async () => {
         try {
           const response = await axios.get(
-            `https://localhost:8000/api/products/${id}/`,
+            `https://ecowiser-task.duckdns.org/api/products/${id}/`,
             {
               headers: {
                 Authorization: `Token ${token}`, // Token prefix, not Bearer
