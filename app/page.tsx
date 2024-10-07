@@ -16,17 +16,17 @@ export default function Home() {
 
     // Fetch data concurrently
     Promise.all([
-      axios.get("https://54.206.137.89:8000/api/products/", {
+      axios.get("https://https://ecowiser-task.duckdns.org/api/products/", {
         headers: {
           Authorization: `Token ${token}`,
         },
       }),
-      axios.get("https://54.206.137.89:8000/api/check_auth_status/", {
+      axios.get("https://https://ecowiser-task.duckdns.org/api/check_auth_status/", {
         headers: {
           Authorization: `Token ${token}`,
         },
       }),
-      axios.get("https://54.206.137.89:8000/api/brands/", {
+      axios.get("https://https://ecowiser-task.duckdns.org/api/brands/", {
         headers: {
           Authorization: `Token ${token}`,
         },

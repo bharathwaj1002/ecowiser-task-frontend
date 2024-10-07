@@ -16,7 +16,7 @@ export default function Signup() {
         setError('');
 
         try {
-            const response = await axios.post('https://54.206.137.89:8000/api/signup/', {
+            const response = await axios.post('https://https://ecowiser-task.duckdns.org/api/signup/', {
                 email,
                 password,
                 confirmPassword,
