@@ -16,17 +16,17 @@ export default function Home() {
 
     // Fetch data concurrently
     Promise.all([
-      axios.get("http://54.206.137.89:8000/api/products/", {
+      axios.get("https://54.206.137.89:8000/api/products/", {
         headers: {
           Authorization: `Token ${token}`,
         },
       }),
-      axios.get("http://54.206.137.89:8000/api/check_auth_status/", {
+      axios.get("https://54.206.137.89:8000/api/check_auth_status/", {
         headers: {
           Authorization: `Token ${token}`,
         },
       }),
-      axios.get("http://54.206.137.89:8000/api/brands/", {
+      axios.get("https://54.206.137.89:8000/api/brands/", {
         headers: {
           Authorization: `Token ${token}`,
         },

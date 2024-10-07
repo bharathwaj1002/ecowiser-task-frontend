@@ -17,7 +17,7 @@ export default function EditBrand(params) {
     if (id) {
       const token = localStorage.getItem("authToken");
       axios
-        .get(`http://54.206.137.89:8000/api/brands/${id}/`, {
+        .get(`https://54.206.137.89:8000/api/brands/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
             "Content-Type": "multipart/form-data",
@@ -44,7 +44,7 @@ export default function EditBrand(params) {
     Object.keys(formData).forEach((key) => form.append(key, formData[key]));
 
     try {
-      await axios.put(`http://54.206.137.89:8000/api/brands/${id}/`, form, {
+      await axios.put(`https://54.206.137.89:8000/api/brands/${id}/`, form, {
         headers: {
           Authorization: `Token ${token}`,
         },

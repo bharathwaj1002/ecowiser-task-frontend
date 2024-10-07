@@ -17,7 +17,7 @@ const ProductSpecs = (params) => {
       const fetchProduct = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8000/api/products/${id}/`,
+            `https://localhost:8000/api/products/${id}/`,
             {
               headers: {
                 Authorization: `Token ${token}`, // Token prefix, not Bearer
@@ -40,7 +40,7 @@ const ProductSpecs = (params) => {
     const token = localStorage.getItem("authToken");
     if (confirm("Are you sure you want to delete this product?")) {
       axios
-        .delete(`http://54.206.137.89:8000/api/products/${id}/`, {
+        .delete(`https://54.206.137.89:8000/api/products/${id}/`, {
           headers: {
             Authorization: `Token ${token}`, // Make sure to use Token
           },
