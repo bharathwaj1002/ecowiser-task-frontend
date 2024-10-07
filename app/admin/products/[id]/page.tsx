@@ -27,7 +27,7 @@ export default function EditProduct(params) {
     if (id) {
       const token = localStorage.getItem("authToken");
       axios
-        .get(`http://127.0.0.1:8000/api/products/${id}/`, {
+        .get(`http://54.206.137.89:8000/api/products/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -46,7 +46,7 @@ export default function EditProduct(params) {
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     axios
-      .get("http://127.0.0.1:8000/api/brands/", {
+      .get("http://54.206.137.89:8000/api/brands/", {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -79,7 +79,7 @@ export default function EditProduct(params) {
     Object.keys(formData).forEach((key) => form.append(key, formData[key]));
 
     try {
-      await axios.put(`http://127.0.0.1:8000/api/products/${id}/`, form, {
+      await axios.put(`http://54.206.137.89:8000/api/products/${id}/`, form, {
         headers: {
           Authorization: `Token ${token}`,
         },

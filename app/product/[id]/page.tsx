@@ -40,7 +40,7 @@ const ProductSpecs = (params) => {
     const token = localStorage.getItem("authToken");
     if (confirm("Are you sure you want to delete this product?")) {
       axios
-        .delete(`http://127.0.0.1:8000/api/products/${id}/`, {
+        .delete(`http://54.206.137.89:8000/api/products/${id}/`, {
           headers: {
             Authorization: `Token ${token}`, // Make sure to use Token
           },

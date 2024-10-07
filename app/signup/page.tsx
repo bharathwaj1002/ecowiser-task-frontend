@@ -16,7 +16,7 @@ export default function Signup() {
         setError('');
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/signup/', {
+            const response = await axios.post('http://54.206.137.89:8000/api/signup/', {
                 email,
                 password,
                 confirmPassword,
