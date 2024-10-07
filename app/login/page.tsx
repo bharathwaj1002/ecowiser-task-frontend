@@ -27,12 +27,6 @@ export default function Login() {
     setError("");
 
     try {
-      const csrfToken = getCSRFToken(); // Get CSRF token
-
-      // Check if the CSRF token is available
-      if (!csrfToken) {
-        throw new Error("CSRF token not found");
-      }
 
       const response = await axios.post(
         "https://ecowiser-task.duckdns.org/api/login/",
@@ -40,12 +34,6 @@ export default function Login() {
           email,
           password,
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken, // Include CSRF token in the headers
-          },
-        }
       );
       
       // If successful, handle the response
