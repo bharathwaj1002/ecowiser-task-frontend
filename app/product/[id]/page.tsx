@@ -12,6 +12,7 @@ const ProductSpecs = (params) => {
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
+    
     if (id) {
       const fetchProduct = async () => {
         try {

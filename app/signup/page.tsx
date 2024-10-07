@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
 
@@ -18,13 +19,14 @@ export default function Signup() {
             const response = await axios.post('http://127.0.0.1:8000/api/signup/', {
                 email,
                 password,
+                confirmPassword,
             });
             console.log('Signup successful:', response.data);
             // Redirect to login or home after signup
             router.push('/login');
         } catch (error) {
             console.error('Signup error:', error);
-            setError('Signup failed. Please try again.');
+            setError(error.response.data.error);
         }
     };
 
@@ -40,7 +42,7 @@ export default function Signup() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="border rounded-lg w-full p-2 my-2"
+                        className="border rounded-lg w-full p-2 my-2 text-black"
                     />
                 </div>
                 <div>
@@ -50,7 +52,17 @@ export default function Signup() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        className="border rounded-lg w-full p-2 my-2"
+                        className="border rounded-lg w-full p-2 my-2 text-black"
+                    />
+                </div>
+                <div>
+                    <label className="block">Confirm Password:</label>
+                    <input
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                        className="border rounded-lg w-full p-2 my-2 text-black"
                     />
                 </div>
                 <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-lg mt-4">
