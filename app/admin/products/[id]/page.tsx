@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import axios from "axios"; // Import Axios
-import AdminLayout from "../../layout";
+import axios from "axios";
 
 export default function EditProduct(params) {
   const { id } = params.params;
@@ -19,10 +17,9 @@ export default function EditProduct(params) {
   });
 
   const [brands, setBrands] = useState([]);
-  const [loading, setLoading] = useState(false); // Loading state
-  const [error, setError] = useState(""); // Error state
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  // Fetch product data
   useEffect(() => {
     if (id) {
       const token = localStorage.getItem("authToken");
@@ -42,7 +39,6 @@ export default function EditProduct(params) {
     }
   }, [id]);
 
-  // Fetch brands
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     axios
@@ -60,7 +56,6 @@ export default function EditProduct(params) {
       });
   }, []);
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (files) {
@@ -70,10 +65,9 @@ export default function EditProduct(params) {
     }
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    setLoading(true);
     const token = localStorage.getItem("authToken");
     const form = new FormData();
     Object.keys(formData).forEach((key) => form.append(key, formData[key]));
@@ -89,11 +83,10 @@ export default function EditProduct(params) {
       console.error("Error:", error);
       setError("Failed to update product.");
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
-  // Cleanup object URLs to avoid memory leaks
   useEffect(() => {
     return () => {
       if (formData.picture1 instanceof File) {
@@ -290,7 +283,7 @@ export default function EditProduct(params) {
             <button
               type="submit"
               className="bg-blue-500 text-white py-2 px-4 rounded"
-              disabled={loading} // Disable button when loading
+              disabled={loading}
             >
               {loading ? "Updating..." : "Update Details"}
             </button>

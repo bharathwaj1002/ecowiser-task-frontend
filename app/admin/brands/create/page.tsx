@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
-import AdminLayout from "../../layout";
-import Link from "next/link";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 
 export default function CreateBrand() {
   const [formData, setFormData] = useState({
@@ -32,8 +30,6 @@ export default function CreateBrand() {
           Authorization: `Token ${token}`,
         },
       });
-
-      // Redirect on successful creation
       window.location.href = "/";
     } catch (err) {
       console.error("Error:", err);

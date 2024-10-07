@@ -8,7 +8,7 @@ const ProductSpecs = (params) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeImage, setActiveImage] = useState(""); // To handle the selected image
+  const [activeImage, setActiveImage] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -20,12 +20,12 @@ const ProductSpecs = (params) => {
             `https://ecowiser-task.duckdns.org/api/products/${id}/`,
             {
               headers: {
-                Authorization: `Token ${token}`, // Token prefix, not Bearer
+                Authorization: `Token ${token}`,
               },
             }
           );
           setProduct(response.data);
-          setActiveImage(response.data.picture1); // Set the first image as default
+          setActiveImage(response.data.picture1);
         } catch (err) {
           setError(err.message);
         } finally {
@@ -42,7 +42,7 @@ const ProductSpecs = (params) => {
       axios
         .delete(`https://ecowiser-task.duckdns.org/api/products/${id}/`, {
           headers: {
-            Authorization: `Token ${token}`, // Make sure to use Token
+            Authorization: `Token ${token}`,
           },
         })
         .then(() => (window.location.href = "/"))

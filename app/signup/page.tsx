@@ -22,7 +22,6 @@ export default function Signup() {
                 confirmPassword,
             });
             console.log('Signup successful:', response.data);
-            // Redirect to login or home after signup
             router.push('/login');
         } catch (error) {
             console.error('Signup error:', error);

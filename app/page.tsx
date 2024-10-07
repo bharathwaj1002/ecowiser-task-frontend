@@ -1,12 +1,12 @@
 "use client";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [products, setProducts] = useState([]); // Initialize as an empty array
-  const [brands, setBrands] = useState([]); // State to store brands
+  const [products, setProducts] = useState([]);
+  const [brands, setBrands] = useState([]);
   const [error, setError] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const router = useRouter();
@@ -14,7 +14,6 @@ export default function Home() {
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
-    // Fetch data concurrently
     Promise.all([
       axios.get("https://ecowiser-task.duckdns.org/api/products/", {
         headers: {
@@ -43,10 +42,9 @@ export default function Home() {
       });
   }, []);
 
-  // Redirect to signup if not authenticated
   useEffect(() => {
     if (!isAuthenticated) {
-      router.push("/signup"); // Redirect to signup page
+      router.push("/signup");
     }
   }, [isAuthenticated, router]);
 

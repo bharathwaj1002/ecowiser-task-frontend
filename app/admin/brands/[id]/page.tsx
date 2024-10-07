@@ -5,7 +5,6 @@ import AdminLayout from "../../layout";
 import axios from "axios";
 
 export default function EditBrand(params) {
-  // const router = useRouter();
   const id = params.params.id;
   console.log("PARAMS: ", params.params.id);
   const [formData, setFormData] = useState({

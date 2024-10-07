@@ -15,11 +15,10 @@ export default function Login() {
       .split("; ")
       .find((row) => row.startsWith("csrftoken="));
 
-    // Check if the CSRF token exists
     if (csrfCookie) {
       return csrfCookie.split("=")[1];
     }
-    return null; // Return null if not found
+    return null;
   };
 
   const handleLogin = async (e) => {
@@ -36,15 +35,13 @@ export default function Login() {
         },
       );
       
-      // If successful, handle the response
+      
       localStorage.setItem("authToken", response.data.token);
       console.log("Login successful:", response.data);
-      // Save the token or user info to local storage or context here
-      // Redirect to home or dashboard after login
       router.push("/");
     } catch (error) {
       console.error("Login error:", error);
-      setError(error.response?.data?.error || error.message); // Display error message to user
+      setError(error.response?.data?.error || error.message);
     }
   };
 
