@@ -40,7 +40,7 @@ const ProductSpecs = (params) => {
     const token = localStorage.getItem("authToken");
     if (confirm("Are you sure you want to delete this product?")) {
       axios
-        .delete(`https://https://ecowiser-task.duckdns.org/api/products/${id}/`, {
+        .delete(`https://ecowiser-task.duckdns.org/api/products/${id}/`, {
           headers: {
             Authorization: `Token ${token}`, // Make sure to use Token
           },

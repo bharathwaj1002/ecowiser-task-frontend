@@ -26,7 +26,7 @@ export default function CreateBrand() {
     Object.keys(formData).forEach((key) => form.append(key, formData[key]));
 
     try {
-      await axios.post("https://https://ecowiser-task.duckdns.org/api/brands/", form, {
+      await axios.post("https://ecowiser-task.duckdns.org/api/brands/", form, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Token ${token}`,

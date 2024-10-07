@@ -35,7 +35,7 @@ export default function Login() {
       }
 
       const response = await axios.post(
-        "https://https://ecowiser-task.duckdns.org/api/login/",
+        "https://ecowiser-task.duckdns.org/api/login/",
         {
           email,
           password,

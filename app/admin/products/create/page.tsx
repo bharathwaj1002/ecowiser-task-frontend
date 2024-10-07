@@ -20,7 +20,7 @@ export default function CreateProduct() {
     const token = localStorage.getItem("authToken");
 
     axios
-      .get("https://https://ecowiser-task.duckdns.org/api/brands/", {
+      .get("https://ecowiser-task.duckdns.org/api/brands/", {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -59,7 +59,7 @@ export default function CreateProduct() {
     Object.keys(formData).forEach((key) => form.append(key, formData[key]));
 
     try {
-      await axios.post("https://https://ecowiser-task.duckdns.org/api/products/", form, {
+      await axios.post("https://ecowiser-task.duckdns.org/api/products/", form, {
         headers: {
           Authorization: `Token ${token}`,
           "Content-Type": "multipart/form-data",
